@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	int x;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>x;
+	    if(x<=100)
+	    {
+	        cout<<x<<endl;
+	    }
+	    else
+	    {
+	        int y=x-10;
+	        cout<<y<<endl;
+	    }
+	}
+	return 0;
+}
