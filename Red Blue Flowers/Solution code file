@@ -1,0 +1,41 @@
+//LINK:-https://www.codechef.com/submit/RBFLOWERS
+
+#include<bits/stdc++.h>
+using namespace std;
+int n,a[102],b[102],ans,Q[102][20001];
+void dfss(int idx,int x,int y)
+{
+    if(idx==n+1){
+        ans=max(ans,min(x,y));
+        return;
+    }
+    if(Q[idx][x]>=y && Q[idx][x]!=0) return ;
+    Q[idx][x]=y
+;
+    dfss(idx+1,x+a[idx],y);
+    dfss(idx+1,x,y+b[idx]);
+}
+
+void solveit()
+{
+    cin>>n;
+    ans=0;
+    for(int i=1;i<=n;++i)
+      for(int j=0;j<20001;++j)
+        Q[i][j]=0;
+        
+    for(int i=1;i<=n;++i) cin>>a[i];
+    for(int i=1;i<=n;++i) cin>>b[i];
+    dfss(1,0,0);
+    cout<<ans<<endl;
+}
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    solveit();
+	}
+	return 0;
+}
