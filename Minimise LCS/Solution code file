@@ -1,0 +1,29 @@
+//LINK:-https://www.codechef.com/submit/MINLCS
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    int n,s=0;
+    string a,b;
+    cin>>n>>a>>b;
+    map<char,int>mp1,mp2;
+    for(char i:a)
+    ++mp1[i];
+    for(char i:b)
+    ++mp2[i];
+    for(char i='a';i<='z';i++)
+    s=max(s,min(mp1[i],mp2[i]));
+    cout<<s<<endl;
+}
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    solve();
+	}
+	return 0;
+}
