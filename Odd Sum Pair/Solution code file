@@ -1,0 +1,18 @@
+//LINK:-https://www.codechef.com/submit/ODDSUMPAIR
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int T;
+	cin >> T;
+	int a,b,c;
+	while(T--)
+	{
+	    cin >> a >> b >> c;
+	    
+	    if((a+b)%2!=0 || (c+b)%2!=0 || (a+c)%2!=0 ) cout << "YES\n";
+	    else cout << "NO\n";
+	}
+	return 0;
+}
