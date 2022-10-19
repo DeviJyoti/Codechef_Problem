@@ -1,0 +1,80 @@
+//LINK:-https://www.codechef.com/submit/PARTPAL
+
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+signed main() {
+	// your code goes here
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	ll cases;
+	cases=1;
+	cin>>cases;
+	while(cases--)
+	{
+	    ll n;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    if(s[0]=='0')
+	    {
+	        for(int i=0;i<2*n;i++)
+	        {
+	            if(s[i]=='1')
+	            {
+	                s[i]='0';
+	            }
+	            else
+	            {
+	                s[i]='1';
+	            }
+	        }
+	    }
+	    vector<ll>vec;
+	    ll cnt;
+	    ll flage=0;
+	    ll p;
+	    for(int i=0;i<2*n;i++)
+	    {
+	        if(s[i]=='0')
+	        {
+	            vec.push_back(i);
+	        }
+	        if(s[i]!=s[2*n-i-1])
+	        {
+	            flage=1;
+	            break;
+	        }
+	    }
+	    if(flage)
+	    {
+	        cout<<"1\n";
+	        cout<<2*n<<"\n";
+	        continue;
+	    }
+	    if(vec.size()==0)
+	    {
+	        cout<<"-1\n";
+	    }
+	    else
+	    {
+	        cnt=2*n-1-vec.back();
+	        for(int i=vec.size()-1;i>=1;i--)
+	        {
+	            if(vec[i]-vec[i-1]-1!=cnt)
+	            {
+	                flage=1;
+	                cout<<"2\n";
+	                cout<<vec[i-1]+1<<" "<<2*n-1-vec[i-1]<<"\n";
+	                break;
+	            }
+	        }
+	        if(flage==0)
+	        {
+	            cout<<"2\n";
+	            cout<<vec[vec.size()-2]+2<<" "<<2*n-2-vec[vec.size()-2]<<endl;
+	        }
+	    }
+	}
+	return 0;
+}
